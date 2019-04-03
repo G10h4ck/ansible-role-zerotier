@@ -5,3 +5,12 @@
     creates: /var/lib/zerotier-one/networks.d/{{ zerotier_network_id }}.conf
   tags:
   - configuration
+
+- name: Configure allowManaged according with zerotier_active_bridge
+  lineinfile:
+    path: /var/lib/zerotier-one/networks.d/{{ zerotier_network_id }}.local.conf
+    regexp: "^allowManaged="
+    line: "allowManaged={{ zerotier_active_bridge | ternary(0,1) }}"
+    state: present
+  tags:
+    - configuration

@@ -1,7 +1,7 @@
 ---
 # defaults file for ansible-role-zerotier
-zerotier_api_url: https://my.zerotier.com
+zerotier_controller_url: http://127.0.0.1:9993/controller
 zerotier_api_delegate: localhost
 zerotier_apt_state: present
-zerotier_register_short_hostname: false
 zerotier_authorize_member: true
+zerotier_active_bridge: false
